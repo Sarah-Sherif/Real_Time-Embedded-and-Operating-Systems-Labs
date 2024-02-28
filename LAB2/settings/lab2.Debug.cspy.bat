@@ -25,7 +25,7 @@ if not "%~1" == "" goto debugFile
 
 @echo on 
 
-"C:\Program Files\IAR Systems\Embedded Workbench 9.0\common\bin\cspybat" -f "D:\RTOS\RTOS Labs\LAB1\settings\Lab_1.Debug.general.xcl" --backend -f "D:\RTOS\RTOS Labs\LAB1\settings\Lab_1.Debug.driver.xcl" 
+"C:\Program Files\IAR Systems\Embedded Workbench 9.0\common\bin\cspybat" -f "D:\RTOS\RTOS Labs\LAB2\settings\lab2.Debug.general.xcl" --backend -f "D:\RTOS\RTOS Labs\LAB2\settings\lab2.Debug.driver.xcl" 
 
 @echo off 
 goto end 
@@ -34,7 +34,7 @@ goto end
 
 @echo on 
 
-"C:\Program Files\IAR Systems\Embedded Workbench 9.0\common\bin\cspybat" -f "D:\RTOS\RTOS Labs\LAB1\settings\Lab_1.Debug.general.xcl" "--debug_file=%~1" --backend -f "D:\RTOS\RTOS Labs\LAB1\settings\Lab_1.Debug.driver.xcl" 
+"C:\Program Files\IAR Systems\Embedded Workbench 9.0\common\bin\cspybat" -f "D:\RTOS\RTOS Labs\LAB2\settings\lab2.Debug.general.xcl" "--debug_file=%~1" --backend -f "D:\RTOS\RTOS Labs\LAB2\settings\lab2.Debug.driver.xcl" 
 
 @echo off 
 :end

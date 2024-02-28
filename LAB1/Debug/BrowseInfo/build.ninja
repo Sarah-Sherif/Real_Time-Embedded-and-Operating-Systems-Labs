@@ -24,28 +24,28 @@ rule PDBLINK
 
 
 #Build steps
-build D$:\RTOS\LAB1\Debug\BrowseInfo\main.xcl : COMPILER_XCL 
-  xclcommand = -source_file D$:\RTOS\LAB1\main.c -xcl_file D$:\RTOS\LAB1\Debug\BrowseInfo\main.xcl -macro_file D$:\RTOS\LAB1\Debug\BrowseInfo\main.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\bin\iccarm.exe"
-  flags = D$:\RTOS\LAB1\main.c -o D$:\RTOS\LAB1\Debug\Obj\ --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\inc\c\DLib_Config_Normal.h" -On --predef_macros D$:\RTOS\LAB1\Debug\BrowseInfo\main.tmp
-  rspfile_name = D$:\RTOS\LAB1\Debug\BrowseInfo\main.xcl.rsp
+build D$:\RTOS\RTOS$ Labs\LAB1\Debug\BrowseInfo\main.xcl : COMPILER_XCL 
+  xclcommand = -source_file "D$:\RTOS\RTOS$ Labs\LAB1\main.c" -xcl_file "D$:\RTOS\RTOS$ Labs\LAB1\Debug\BrowseInfo\main.xcl" -macro_file "D$:\RTOS\RTOS$ Labs\LAB1\Debug\BrowseInfo\main.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\bin\iccarm.exe"
+  flags = "D$:\RTOS\RTOS$ Labs\LAB1\main.c" -o "D$:\RTOS\RTOS$ Labs\LAB1\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\inc\c\DLib_Config_Normal.h" -On --predef_macros "D$:\RTOS\RTOS$ Labs\LAB1\Debug\BrowseInfo\main.tmp"
+  rspfile_name = D$:\RTOS\RTOS$ Labs\LAB1\Debug\BrowseInfo\main.xcl.rsp
 
-build D$:\RTOS\LAB1\Debug\BrowseInfo\startup_ewarm.xcl : COMPILER_XCL 
-  xclcommand = -source_file D$:\RTOS\LAB1\startup_ewarm.c -xcl_file D$:\RTOS\LAB1\Debug\BrowseInfo\startup_ewarm.xcl -macro_file D$:\RTOS\LAB1\Debug\BrowseInfo\startup_ewarm.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\bin\iccarm.exe"
-  flags = D$:\RTOS\LAB1\startup_ewarm.c -o D$:\RTOS\LAB1\Debug\Obj\ --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\inc\c\DLib_Config_Normal.h" -On --predef_macros D$:\RTOS\LAB1\Debug\BrowseInfo\startup_ewarm.tmp
-  rspfile_name = D$:\RTOS\LAB1\Debug\BrowseInfo\startup_ewarm.xcl.rsp
+build D$:\RTOS\RTOS$ Labs\LAB1\Debug\BrowseInfo\startup_ewarm.xcl : COMPILER_XCL 
+  xclcommand = -source_file "D$:\RTOS\RTOS$ Labs\LAB1\startup_ewarm.c" -xcl_file "D$:\RTOS\RTOS$ Labs\LAB1\Debug\BrowseInfo\startup_ewarm.xcl" -macro_file "D$:\RTOS\RTOS$ Labs\LAB1\Debug\BrowseInfo\startup_ewarm.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\bin\iccarm.exe"
+  flags = "D$:\RTOS\RTOS$ Labs\LAB1\startup_ewarm.c" -o "D$:\RTOS\RTOS$ Labs\LAB1\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\inc\c\DLib_Config_Normal.h" -On --predef_macros "D$:\RTOS\RTOS$ Labs\LAB1\Debug\BrowseInfo\startup_ewarm.tmp"
+  rspfile_name = D$:\RTOS\RTOS$ Labs\LAB1\Debug\BrowseInfo\startup_ewarm.xcl.rsp
 
-build D$:\RTOS\LAB1\Debug\BrowseInfo\main.pbi : INDEXER D$:\RTOS\LAB1\Debug\BrowseInfo\main.xcl |  $
-D$:\RTOS\LAB1\main.c
-  flags = -out=D$:\RTOS\LAB1\Debug\BrowseInfo\main.pbi -f D$:\RTOS\LAB1\Debug\BrowseInfo\main.xcl
+build D$:\RTOS\RTOS$ Labs\LAB1\Debug\BrowseInfo\main.pbi : INDEXER D$:\RTOS\RTOS$ Labs\LAB1\Debug\BrowseInfo\main.xcl |  $
+D$:\RTOS\RTOS$ Labs\LAB1\main.c
+  flags = "-out=D$:\RTOS\RTOS$ Labs\LAB1\Debug\BrowseInfo\main.pbi" -f "D$:\RTOS\RTOS$ Labs\LAB1\Debug\BrowseInfo\main.xcl"
 
-build D$:\RTOS\LAB1\Debug\BrowseInfo\startup_ewarm.pbi : INDEXER D$:\RTOS\LAB1\Debug\BrowseInfo\startup_ewarm.xcl |  $
-D$:\RTOS\LAB1\startup_ewarm.c
-  flags = -out=D$:\RTOS\LAB1\Debug\BrowseInfo\startup_ewarm.pbi -f D$:\RTOS\LAB1\Debug\BrowseInfo\startup_ewarm.xcl
+build D$:\RTOS\RTOS$ Labs\LAB1\Debug\BrowseInfo\startup_ewarm.pbi : INDEXER D$:\RTOS\RTOS$ Labs\LAB1\Debug\BrowseInfo\startup_ewarm.xcl |  $
+D$:\RTOS\RTOS$ Labs\LAB1\startup_ewarm.c
+  flags = "-out=D$:\RTOS\RTOS$ Labs\LAB1\Debug\BrowseInfo\startup_ewarm.pbi" -f "D$:\RTOS\RTOS$ Labs\LAB1\Debug\BrowseInfo\startup_ewarm.xcl"
 
-build D$:\RTOS\LAB1\Debug\BrowseInfo\Lab_1.pbw : MAKEBROWSE D$:\RTOS\LAB1\Debug\BrowseInfo\Lab_1.pbd
-  flags = D$:\RTOS\LAB1\Debug\BrowseInfo\Lab_1.pbd -output D$:\RTOS\LAB1\Debug\BrowseInfo\Lab_1.pbw
+build D$:\RTOS\RTOS$ Labs\LAB1\Debug\BrowseInfo\Lab_1.pbw : MAKEBROWSE D$:\RTOS\RTOS$ Labs\LAB1\Debug\BrowseInfo\Lab_1.pbd
+  flags = "D$:\RTOS\RTOS$ Labs\LAB1\Debug\BrowseInfo\Lab_1.pbd" -output "D$:\RTOS\RTOS$ Labs\LAB1\Debug\BrowseInfo\Lab_1.pbw"
 
-build D$:\RTOS\LAB1\Debug\BrowseInfo\Lab_1.pbd : PDBLINK D$:\RTOS\LAB1\Debug\BrowseInfo\main.pbi |  $
-D$:\RTOS\LAB1\Debug\BrowseInfo\startup_ewarm.pbi
-  flags = -M D$:\RTOS\LAB1\Debug\BrowseInfo\Lab_1.pbd D$:\RTOS\LAB1\Debug\BrowseInfo\main.pbi D$:\RTOS\LAB1\Debug\BrowseInfo\startup_ewarm.pbi
+build D$:\RTOS\RTOS$ Labs\LAB1\Debug\BrowseInfo\Lab_1.pbd : PDBLINK D$:\RTOS\RTOS$ Labs\LAB1\Debug\BrowseInfo\main.pbi |  $
+D$:\RTOS\RTOS$ Labs\LAB1\Debug\BrowseInfo\startup_ewarm.pbi
+  flags = -M "D$:\RTOS\RTOS$ Labs\LAB1\Debug\BrowseInfo\Lab_1.pbd" "D$:\RTOS\RTOS$ Labs\LAB1\Debug\BrowseInfo\main.pbi" "D$:\RTOS\RTOS$ Labs\LAB1\Debug\BrowseInfo\startup_ewarm.pbi"
 

@@ -1,15 +1,15 @@
-"D:\RTOS\RTOS Labs\LAB1\main.c"
+"D:\RTOS\RTOS Labs\LAB2\main.c"
 -std=c11
 -ferror-limit=0
 -fbracket-depth=512
 -funsigned-char
 -MD
 -MF
-D:\RTOS\RTOS Labs\LAB1\Debug\BrowseInfo\main.pbi.dep
+D:\RTOS\RTOS Labs\LAB2\Debug\BrowseInfo\main.pbi.dep
 -o
-D:\RTOS\RTOS Labs\LAB1\Debug\BrowseInfo\main.pbi
+D:\RTOS\RTOS Labs\LAB2\Debug\BrowseInfo\main.pbi
 -I
-D:\RTOS\RTOS Labs\LAB1
+D:\RTOS\RTOS Labs\LAB2
 -I
 C:\Program Files\IAR Systems\Embedded Workbench 9.0\arm\inc\c\aarch32
 -I

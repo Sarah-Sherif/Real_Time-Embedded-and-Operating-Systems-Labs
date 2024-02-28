@@ -1,15 +1,15 @@
-"D:\RTOS\LAB1\startup_ewarm.c"
+"D:\RTOS\RTOS Labs\LAB1\startup_ewarm.c"
 -std=c11
 -ferror-limit=0
 -fbracket-depth=512
 -funsigned-char
 -MD
 -MF
-D:\RTOS\LAB1\Debug\BrowseInfo\startup_ewarm.pbi.dep
+D:\RTOS\RTOS Labs\LAB1\Debug\BrowseInfo\startup_ewarm.pbi.dep
 -o
-D:\RTOS\LAB1\Debug\BrowseInfo\startup_ewarm.pbi
+D:\RTOS\RTOS Labs\LAB1\Debug\BrowseInfo\startup_ewarm.pbi
 -I
-D:\RTOS\LAB1
+D:\RTOS\RTOS Labs\LAB1
 -I
 C:\Program Files\IAR Systems\Embedded Workbench 9.0\arm\inc\c\aarch32
 -I

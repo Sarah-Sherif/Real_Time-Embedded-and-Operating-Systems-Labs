@@ -1,0 +1,225 @@
+###############################################################################
+#
+# IAR ELF Linker V9.10.1.308/W64 for ARM                  28/Feb/2024  11:33:59
+# Copyright 2007-2021 IAR Systems AB.
+#
+#    Output file  =  D:\RTOS\RTOS Labs\LAB2\Debug\Exe\lab2.out
+#    Map file     =  D:\RTOS\RTOS Labs\LAB2\Debug\List\lab2.map
+#    Command line =
+#        -f "D:\RTOS\RTOS Labs\LAB2\Debug\Exe\lab2.out.rsp" ("D:\RTOS\RTOS
+#        Labs\LAB2\Debug\Obj\main.o" "D:\RTOS\RTOS
+#        Labs\LAB2\Debug\Obj\startup_ewarm.o" --no_out_extension -o
+#        "D:\RTOS\RTOS Labs\LAB2\Debug\Exe\lab2.out" --redirect
+#        _Printf=_PrintfFullNoMb --redirect _Scanf=_ScanfFullNoMb --map
+#        "D:\RTOS\RTOS Labs\LAB2\Debug\List\lab2.map" --config "C:\Program
+#        Files\IAR Systems\Embedded Workbench
+#        9.0\arm\config\linker\TexasInstruments\TM4C123GH6.icf" --semihosting
+#        --entry __iar_program_start --vfe --text_out locale)
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__SystemLibrary = DLib
+__dlib_version  = 6
+
+
+*******************************************************************************
+*** HEAP SELECTION
+***
+
+The basic heap was selected because no calls to memory allocation
+functions were found in the application outside of system library
+functions, and there are calls to deallocation functions in the
+application.
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at address 0x0 { ro section .intvec };
+"P1":  place in [from 0x0 to 0x3'ffff] { ro };
+define block CSTACK with size = 4K, alignment = 8 { };
+define block HEAP with size = 8K, alignment = 8 { };
+"P2":  place in [from 0x2000'0000 to 0x2000'7fff] {
+          rw, block CSTACK, block HEAP };
+do not initialize { rw section .noinit };
+initialize by copy { rw };
+
+  Section            Kind         Address   Size  Object
+  -------            ----         -------   ----  ------
+"A0":                                      0x26c
+  .intvec            const            0x0  0x26c  startup_ewarm.o [1]
+                                  - 0x26c  0x26c
+
+"P1":                                      0x360
+  .text              ro code        0x26c  0x20c  main.o [1]
+  .text              ro code        0x478   0x38  zero_init3.o [4]
+  .text              ro code        0x4b0   0x2a  copy_init3.o [4]
+  .text              ro code        0x4dc   0x28  data_init.o [4]
+  .text              ro code        0x504   0x22  fpinit_M.o [3]
+  .iar.init_table    const          0x528   0x24  - Linker created -
+  .text              ro code        0x54c   0x1e  cmain.o [4]
+  .text              ro code        0x56a    0x4  low_level_init.o [2]
+  .text              ro code        0x56e    0x4  exit.o [2]
+  .text              ro code        0x574    0xa  cexit.o [4]
+  .text              ro code        0x580   0x14  exit.o [5]
+  .text              ro code        0x594   0x1c  cstartup_M.o [4]
+  .text              ro code        0x5b0    0xe  startup_ewarm.o [1]
+  Initializer bytes  const          0x5c0    0xc  <for P2-1>
+  .rodata            const          0x5cc    0x0  zero_init3.o [4]
+  .rodata            const          0x5cc    0x0  copy_init3.o [4]
+                                  - 0x5cc  0x360
+
+"P2", part 1 of 3:                           0xc
+  P2-1                        0x2000'0000    0xc  <Init block>
+    .data            inited   0x2000'0000    0x4  main.o [1]
+    .data            inited   0x2000'0004    0x4  main.o [1]
+    .data            inited   0x2000'0008    0x4  main.o [1]
+                            - 0x2000'000c    0xc
+
+"P2", part 2 of 3:                         0x148
+  .bss               zero     0x2000'000c   0xa0  main.o [1]
+  .bss               zero     0x2000'00ac   0xa0  main.o [1]
+  .bss               zero     0x2000'014c    0x4  main.o [1]
+  .bss               zero     0x2000'0150    0x4  main.o [1]
+                            - 0x2000'0154  0x148
+
+"P2", part 3 of 3:                         0x400
+  .noinit            uninit   0x2000'0154  0x400  startup_ewarm.o [1]
+                            - 0x2000'0554  0x400
+
+Unused ranges:
+
+         From           To      Size
+         ----           --      ----
+        0x5cc     0x3'ffff  0x3'fa34
+  0x2000'0554  0x2000'7fff    0x7aac
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address      Size
+          -------      ----
+Zero (__iar_zero_init3)
+    1 destination range, total size 0x148:
+          0x2000'000c  0x148
+
+Copy (__iar_copy_init3)
+    1 source range, total size 0xc:
+                0x5c0    0xc
+    1 destination range, total size 0xc:
+          0x2000'0000    0xc
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module            ro code  ro data  rw data
+    ------            -------  -------  -------
+command line/config:
+    -------------------------------------------
+    Total:
+
+D:\RTOS\RTOS Labs\LAB2\Debug\Obj: [1]
+    main.o                524       12      340
+    startup_ewarm.o        14      620    1'024
+    -------------------------------------------
+    Total:                538      632    1'364
+
+dl7M_tln.a: [2]
+    exit.o                  4
+    low_level_init.o        4
+    -------------------------------------------
+    Total:                  8
+
+m7M_tls.a: [3]
+    fpinit_M.o             34
+    -------------------------------------------
+    Total:                 34
+
+rt7M_tl.a: [4]
+    cexit.o                10
+    cmain.o                30
+    copy_init3.o           42
+    cstartup_M.o           28
+    data_init.o            40
+    zero_init3.o           56
+    -------------------------------------------
+    Total:                206
+
+shb_l.a: [5]
+    exit.o                 20
+    -------------------------------------------
+    Total:                 20
+
+    Gaps                    6        2
+    Linker created                  38
+-----------------------------------------------
+    Grand Total:          812      672    1'364
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                       Address   Size  Type      Object
+-----                       -------   ----  ----      ------
+.iar.init_table$$Base         0x528          --   Gb  - Linker created -
+.iar.init_table$$Limit        0x54c          --   Gb  - Linker created -
+?main                         0x54d         Code  Gb  cmain.o [4]
+FaultISR                      0x5bb    0x2  Code  Lc  startup_ewarm.o [1]
+IntDefaultHandler             0x5bd    0x2  Code  Lc  startup_ewarm.o [1]
+NmiSR                         0x5b9    0x2  Code  Lc  startup_ewarm.o [1]
+Region$$Table$$Base           0x528          --   Gb  - Linker created -
+Region$$Table$$Limit          0x54c          --   Gb  - Linker created -
+ResetISR                      0x5b1    0x8  Code  Gb  startup_ewarm.o [1]
+__cmain                       0x54d         Code  Gb  cmain.o [4]
+__exit                        0x581   0x14  Code  Gb  exit.o [5]
+__iar_copy_init3              0x4b1   0x2a  Code  Gb  copy_init3.o [4]
+__iar_data_init3              0x4dd   0x28  Code  Gb  data_init.o [4]
+__iar_init_vfp                0x505         Code  Gb  fpinit_M.o [3]
+__iar_program_start           0x595         Code  Gb  cstartup_M.o [4]
+__iar_zero_init3              0x479   0x38  Code  Gb  zero_init3.o [4]
+__low_level_init              0x56b    0x4  Code  Gb  low_level_init.o [2]
+__vector_table                  0x0  0x26c  Data  Gb  startup_ewarm.o [1]
+_call_main                    0x559         Code  Gb  cmain.o [4]
+_exit                         0x575         Code  Gb  cexit.o [4]
+blinky_blue                   0x2ef   0x1e  Code  Gb  main.o [1]
+blinky_red                    0x2d1   0x1e  Code  Gb  main.o [1]
+blue_sp                 0x2000'0008    0x4  Data  Gb  main.o [1]
+blue_stack              0x2000'00ac   0xa0  Data  Gb  main.o [1]
+delay                         0x2b1   0x20  Code  Gb  main.o [1]
+exit                          0x56f    0x4  Code  Gb  exit.o [2]
+l_tickCntr              0x2000'014c    0x4  Data  Lc  main.o [1]
+main                          0x30d  0x138  Code  Gb  main.o [1]
+portF_init                    0x26d   0x26  Code  Gb  main.o [1]
+pui32Stack              0x2000'0154  0x400  Data  Lc  startup_ewarm.o [1]
+red_sp                  0x2000'0004    0x4  Data  Gb  main.o [1]
+red_stack               0x2000'000c   0xa0  Data  Gb  main.o [1]
+start                   0x2000'0150    0x4  Data  Gb  main.o [1]
+systick_Handler               0x2a3    0xc  Code  Gb  main.o [1]
+systick_init                  0x293   0x10  Code  Gb  main.o [1]
+ticks                   0x2000'0000    0x4  Data  Gb  main.o [1]
+
+
+[1] = D:\RTOS\RTOS Labs\LAB2\Debug\Obj
+[2] = dl7M_tln.a
+[3] = m7M_tls.a
+[4] = rt7M_tl.a
+[5] = shb_l.a
+
+    812 bytes of readonly  code memory
+    672 bytes of readonly  data memory
+  1'364 bytes of readwrite data memory
+
+Errors: none
+Warnings: none
