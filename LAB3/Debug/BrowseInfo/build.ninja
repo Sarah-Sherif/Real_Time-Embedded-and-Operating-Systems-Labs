@@ -1,0 +1,90 @@
+##IAR Ninja build file
+
+
+#Rules
+rule COMPILER_XCL
+  command = C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\XclFileGenerator.exe $xclcommand -f "$rspfile_name"
+  description = IAR_NEW_TOOL+++COMPILER_XCL+++$in+++C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\XclFileGenerator.exe $flags
+  rspfile = $rspfile_name
+  rspfile_content = $flags
+
+rule INDEXER
+  command = C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\SourceIndexer.exe $flags
+  depfile = $out.dep
+  description = IAR_NEW_TOOL+++INDEXER+++$out+++C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\SourceIndexer.exe $flags
+
+rule MAKEBROWSE
+  command = C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\makeBrowseData.exe $flags
+  description = IAR_NEW_TOOL+++MAKEBROWSE+++$out+++C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\makeBrowseData.exe $flags
+
+rule PDBLINK
+  command = C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\PbdLink.exe $flags
+  description = IAR_NEW_TOOL+++PDBLINK+++$out+++C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\PbdLink.exe $flags
+
+
+
+#Build steps
+build D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\leds_driver.xcl : COMPILER_XCL 
+  xclcommand = -source_file "D$:\RTOS\RTOS$ Labs\LAB3\leds_driver.c" -xcl_file "D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\leds_driver.xcl" -macro_file "D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\leds_driver.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\bin\iccarm.exe"
+  flags = "D$:\RTOS\RTOS$ Labs\LAB3\leds_driver.c" -o "D$:\RTOS\RTOS$ Labs\LAB3\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\inc\c\DLib_Config_Normal.h" -Ol --predef_macros "D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\leds_driver.tmp"
+  rspfile_name = D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\leds_driver.xcl.rsp
+
+build D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\main.xcl : COMPILER_XCL 
+  xclcommand = -source_file "D$:\RTOS\RTOS$ Labs\LAB3\main.c" -xcl_file "D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\main.xcl" -macro_file "D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\main.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\bin\iccarm.exe"
+  flags = "D$:\RTOS\RTOS$ Labs\LAB3\main.c" -o "D$:\RTOS\RTOS$ Labs\LAB3\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\inc\c\DLib_Config_Normal.h" -Ol --predef_macros "D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\main.tmp"
+  rspfile_name = D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\main.xcl.rsp
+
+build D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\scheduler.xcl : COMPILER_XCL 
+  xclcommand = -source_file "D$:\RTOS\RTOS$ Labs\LAB3\scheduler.c" -xcl_file "D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\scheduler.xcl" -macro_file "D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\scheduler.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\bin\iccarm.exe"
+  flags = "D$:\RTOS\RTOS$ Labs\LAB3\scheduler.c" -o "D$:\RTOS\RTOS$ Labs\LAB3\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\inc\c\DLib_Config_Normal.h" -Ol --predef_macros "D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\scheduler.tmp"
+  rspfile_name = D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\scheduler.xcl.rsp
+
+build D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\startup_ewarm.xcl : COMPILER_XCL 
+  xclcommand = -source_file "D$:\RTOS\RTOS$ Labs\LAB3\startup_ewarm.c" -xcl_file "D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\startup_ewarm.xcl" -macro_file "D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\startup_ewarm.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\bin\iccarm.exe"
+  flags = "D$:\RTOS\RTOS$ Labs\LAB3\startup_ewarm.c" -o "D$:\RTOS\RTOS$ Labs\LAB3\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\inc\c\DLib_Config_Normal.h" -Ol --predef_macros "D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\startup_ewarm.tmp"
+  rspfile_name = D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\startup_ewarm.xcl.rsp
+
+build D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\SysTick.xcl : COMPILER_XCL 
+  xclcommand = -source_file "D$:\RTOS\RTOS$ Labs\LAB3\SysTick.c" -xcl_file "D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\SysTick.xcl" -macro_file "D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\SysTick.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\bin\iccarm.exe"
+  flags = "D$:\RTOS\RTOS$ Labs\LAB3\SysTick.c" -o "D$:\RTOS\RTOS$ Labs\LAB3\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\inc\c\DLib_Config_Normal.h" -Ol --predef_macros "D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\SysTick.tmp"
+  rspfile_name = D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\SysTick.xcl.rsp
+
+build D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\leds_driver.pbi : INDEXER D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\leds_driver.xcl |  $
+D$:\RTOS\RTOS$ Labs\LAB3\leds_driver.c
+  flags = "-out=D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\leds_driver.pbi" -f "D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\leds_driver.xcl"
+
+build D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\main.pbi : INDEXER D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\main.xcl |  $
+D$:\RTOS\RTOS$ Labs\LAB3\main.c
+  flags = "-out=D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\main.pbi" -f "D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\main.xcl"
+
+build D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\scheduler.pbi : INDEXER D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\scheduler.xcl |  $
+D$:\RTOS\RTOS$ Labs\LAB3\scheduler.c
+  flags = "-out=D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\scheduler.pbi" -f "D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\scheduler.xcl"
+
+build D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\startup_ewarm.pbi : INDEXER D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\startup_ewarm.xcl |  $
+D$:\RTOS\RTOS$ Labs\LAB3\startup_ewarm.c
+  flags = "-out=D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\startup_ewarm.pbi" -f "D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\startup_ewarm.xcl"
+
+build D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\SysTick.pbi : INDEXER D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\SysTick.xcl |  $
+D$:\RTOS\RTOS$ Labs\LAB3\SysTick.c
+  flags = "-out=D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\SysTick.pbi" -f "D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\SysTick.xcl"
+
+build D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\Lab3.pbw : MAKEBROWSE D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\Lab3.pbd
+  flags = "D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\Lab3.pbd" -output "D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\Lab3.pbw"
+
+build D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\Lab3_part0.pbi : PDBLINK D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\leds_driver.pbi |  $
+D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\main.pbi
+  flags = -M "D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\Lab3_part0.pbi" "D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\leds_driver.pbi" "D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\main.pbi"
+
+build D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\Lab3_part1.pbi : PDBLINK D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\scheduler.pbi |  $
+D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\startup_ewarm.pbi
+  flags = -M "D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\Lab3_part1.pbi" "D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\scheduler.pbi" "D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\startup_ewarm.pbi"
+
+build D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\Lab3_part2.pbi : PDBLINK D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\SysTick.pbi
+  flags = -M "D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\Lab3_part2.pbi" "D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\SysTick.pbi"
+
+build D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\Lab3.pbd : PDBLINK D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\Lab3_part0.pbi |  $
+D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\Lab3_part1.pbi $
+D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\Lab3_part2.pbi
+  flags = -M "D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\Lab3.pbd" "D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\Lab3_part0.pbi" "D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\Lab3_part1.pbi" "D$:\RTOS\RTOS$ Labs\LAB3\Debug\BrowseInfo\Lab3_part2.pbi"
+

@@ -4,6 +4,9 @@
         <path>$WS_DIR$\..\LAB2\lab2.ewp</path>
     </project>
     <project>
+        <path>$WS_DIR$\..\LAB3\Lab3.ewp</path>
+    </project>
+    <project>
         <path>$WS_DIR$\Lab_1.ewp</path>
     </project>
     <batchBuild />
